@@ -47,4 +47,87 @@ angular.module('starter.services', [])
       return null;
     }
   };
+})
+
+.factory('Users', function($http) {
+  // Might use a resource here that returns a JSON array
+
+  var fakeusers = [{
+    id: 0,
+    name: 'Ricardo Lobo',
+    description: 'A very complex and robust project manager'
+  }, {
+    id: 1,
+    name: 'Nuno Barros',
+    description: 'A screw you too app to use with your friends'
+  }, {
+    id: 2,
+    name: 'Ighor Martins',
+    description: 'A would-be processing app to learn how to kick'
+  }, {
+    id: 3,
+    name: 'Daniel Bento',
+    description: 'A would-be processing app to learn how to kick'
+  }];
+
+  var users = [];
+
+  return {
+    all: function() {
+      return fakeusers;
+    },
+    getUsers: function(){
+      
+      $http.defaults.headers.common.Authorization = 'Basic bG9ibzpsb2Jv';
+
+      return $http.get("http://busycoaches.com/users/").then(function(response){
+        users = response;
+        return users.data.results;
+      });
+    },
+    get: function(chatId) {
+      for (var i = 0; i < chats.length; i++) {
+        if (chats[i].id === parseInt(chatId)) {
+          return chats[i];
+        }
+      }
+      return null;
+    }
+  };
+})
+
+.factory('Projects', function() {
+  // Might use a resource here that returns a JSON array
+
+  // for now i'll use this shit
+  var projs = [{
+    id: 0,
+    name: 'Taskatone',
+    description: 'A very complex and robust project manager'
+  }, {
+    id: 1,
+    name: 'Please do Not...',
+    description: 'A screw you too app to use with your friends'
+  }, {
+    id: 2,
+    name: 'Punching Bag',
+    description: 'A would-be processing app to learn how to kick'
+  }];
+
+
+  return {
+    all: function() {
+      return projs;
+    },
+    get: function(chatId) {
+      for (var i = 0; i < chats.length; i++) {
+        if (chats[i].id === parseInt(chatId)) {
+          return chats[i];
+        }
+      }
+      return null;
+    }
+  };
 });
+
+

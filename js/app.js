@@ -23,6 +23,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
+  // console.log($stateProvider);
+
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
@@ -66,7 +68,29 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+  
+  // added by mighty lobo
+  .state('tab.projects', {
+      url: '/projects',
+      views: {
+        'tab-projects': {
+          templateUrl: 'templates/tab-projects.html',
+          controller: 'ProjectsCtrl'
+        }
+      }
+    })
 
+    // added by mighty lobo
+  .state('tab.users', {
+      url: '/users',
+      views: {
+        'tab-users': {
+          templateUrl: 'templates/tab-users.html',
+          controller: 'UsersCtrl'
+        }
+      }
+    })
+  
   .state('tab.account', {
     url: '/account',
     views: {
