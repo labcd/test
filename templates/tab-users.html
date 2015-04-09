@@ -1,9 +1,17 @@
-<ion-view view-title="Projects">
+<ion-view view-title="Users">
+  <!-- http://ionicframework.com/docs/api/directive/ionNavButtons/ -->
+  <ion-nav-buttons side="secondary">
+	  <button class="button button-clear button-light" ng-click="doSomething()">Add</button>
+  </ion-nav-buttons>	
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-icon-right" ng-repeat="u in users" type="item-text-wrap" href="#/tab/chats/{{p.id}}">
+      <ion-item class="item-remove-animate item-icon-right" ng-repeat="u in users" type="item-text-wrap" href="#/tab/users/{{u.id}}">
         <h2>{{u.username}}</h2>
         <i class="icon ion-chevron-right icon-accessory"></i>
+      <!-- delete option -->
+      <ion-option-button class="button-assertive" ng-click="removeUser(u)">
+          Delete
+        </ion-option-button>
       </ion-item>
     </ion-list>
   </ion-content>

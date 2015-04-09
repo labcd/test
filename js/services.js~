@@ -60,7 +60,7 @@ angular.module('starter.services', [])
       $http.defaults.headers.common.Authorization = 'Basic bG9ibzpsb2Jv';
 
       // https://docs.angularjs.org/api/ng/service/$http#get  
-      var HttpPromise = $http.get("http://busycoaches.com/users/").then(
+      var HttpPromise = $http.get("http://127.0.0.1:8000/users/").then(
         function success (response){
             console.log("success");
             users = response.data.results;
@@ -78,7 +78,7 @@ angular.module('starter.services', [])
       $http.defaults.headers.common.Authorization = 'Basic bG9ibzpsb2Jv';
       
       // https://docs.angularjs.org/api/ng/service/$http#get  
-      var HttpPromise = $http.get("http://busycoaches.com/users/" + userId + "/").then(
+      var HttpPromise = $http.get("http://127.0.0.1:8000/users/" + userId + "/").then(
         function success (response){
             console.log("success");
             user = response;
@@ -99,7 +99,7 @@ angular.module('starter.services', [])
         $http.defaults.headers.common.Authorization = 'Basic bG9ibzpsb2Jv';
       
         // https://docs.angularjs.org/api/ng/service/$http#post          
-        var HttpPromise = $http.post("http://busycoaches.com/users/", angular.toJson(user)).then(
+        var HttpPromise = $http.post("http://127.0.0.1:8000/users/", angular.toJson(user)).then(
           function success(response){
             console.log("success");
             users.push(response.data);
@@ -149,7 +149,7 @@ angular.module('starter.services', [])
       $http.defaults.headers.common.Authorization = 'Basic bG9ibzpsb2Jv';
 
       // https://docs.angularjs.org/api/ng/service/$http#post
-      var HttpPromise = $http.delete("http://busycoaches.com/users/" + user.id + "/").then(
+      var HttpPromise = $http.delete("http://127.0.0.1:8000/users/" + user.id + "/").then(
         function success(response) {
           console.log("success");
           console.log(users);

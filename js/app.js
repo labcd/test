@@ -90,7 +90,41 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+  .state('tab.user-detail', {
+      url: '/users/:userId',
+      views: {
+        'tab-users': {
+          templateUrl: 'templates/user-detail.html',
+          controller: 'UserDetailCtrl'
+        }
+      }
+    })
   
+    // experimental stuff yes it is
+    .state('tab.user-add', {
+        url: "/user-add",
+        views: {
+          'tab-users': { // this is the way we activate the icon on the tab bar?
+          templateUrl: 'templates/user-add.html', // this is the template we load
+          controller: 'UsersAddCtrl'
+      }
+    }
+    })
+
+    // experimental stuff yes it is
+    // http://stackoverflow.com/questions/19516771/state-go-toparams-not-passed-to-stateparams
+    .state('tab.user-edit', {
+        // url: "/user-edit",
+        params: {'userId': null },
+        views: {
+          'tab-users': { // this is the way we activate the icon on the tab bar?
+          templateUrl: 'templates/user-edit.html', // this is the template we load
+          controller: 'UserEditCtrl'
+      }
+    }
+    })
+
+
   .state('tab.account', {
     url: '/account',
     views: {
